@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cupcake">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Products Details</title>
+    <link rel="stylesheet" href="./stlye.css" />
+    <link rel="stylesheet" href="./src/output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- Nav bar -->
+    <div class="container px-3 py-5 mx-auto xl:px-10">
+      <div class="navbar bg-base-100 sticky top-0 z-20">
+        <div class="flex-1">
+          <a class="w-20 xl:cursor-pointer"
+            ><img
+              class="cursor-pointer"
+              src="./images/logo.png"
+              alt="logo"
+              width="80px"
+          /></a>
+        </div>
+
+        <div class="flex-none">
+          <div class="dropdown dropdown-end">
+            <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+              <div class="indicator">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                  />
+                </svg>
+                <span id="badge" class="badge badge-sm indicator-item">0</span>
+              </div>
+            </div>
+            <div
+              tabindex="0"
+              class="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow"
+            >
+              <!-- Menu -->
+              <!-- modal -->
+
+              <dialog id="my_modal_1" class="modal">
+                <div class="modal-box">
+                  <h3 class="font-bold text-lg">Hello!</h3>
+                  <p class="py-4">Cart is Empty</p>
+                  <div class="modal-action">
+                    <form method="dialog">
+                      <!-- if there is a button in form, it will close the modal -->
+                      <button class="btn">Close</button>
+                    </form>
+                  </div>
+                </div>
+              </dialog>
+              <!-- modal -->
+
+              <div class="card-body">
+                <span id="cart-items" class="font-bold text-lg">0 Items</span>
+                <span class="text-info">Subtotal: $0</span>
+                <div class="card-actions">
+                  <button
+                    class="btn btn-primary btn-block"
+                    onclick="my_modal_1.showModal()"
+                  >
+                    View cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="dropdown dropdown-end">
+            <div
+              tabindex="0"
+              role="button"
+              class="btn btn-ghost btn-circle avatar"
+            >
+              <div class="w-10 rounded-full">
+                <img
+                  alt="Tailwind CSS Navbar component"
+                  src="./images/profile-icon.png"
+                />
+              </div>
+            </div>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <a class="justify-between">
+                  Profile
+                  <span class="badge">New</span>
+                </a>
+              </li>
+              <li><a>Settings</a></li>
+              <li><a>Login</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <ul
+        class="hidden xl:flex navbar navbar-center justify-center w-[80%] gap-32 mb-12 sticky top-0 z-20 mx-auto"
+      >
+        <li class="btn btn-ghost">
+          <span><i class="fa-solid fa-list"></i></span>&#160;&#160; Categories
+        </li>
+        <a href="./index.html">
+          <li class="btn btn-ghost hover:bg-primary">
+            <span><i class="fa-solid fa-house"></i></span>&#160;&#160; Home
+          </li>
+        </a>
+        <li class="btn btn-ghost hover:bg-primary">
+          <span><i class="fa-solid fa-gifts"></i></span>&#160;&#160;All Products
+        </li>
+        <li class="btn btn-ghost hover:bg-primary">
+          <span><i class="fa-solid fa-phone-volume"></i></span>&#160;&#160; Help
+          Center
+        </li>
+        <li class="btn btn-ghost hover:bg-primary">
+          <span><i class="fa-solid fa-mobile-retro"></i></span>&#160;&#160; Get
+          App
+        </li>
+      </ul>
+      <div class="w-full mb-10">
+        <img class="" src="./images/sale.jpeg" alt="" />
+      </div>
+      <h1 class="text-center text-6xl text-primary mb-10">Today's Sale</h1>
+      <ul id="list" class="w-full flex flex-wrap gap-4 justify-center">
+        <template>
+          <li id="list-item" class="">
+            <div id="card" class="card card-compact w-96 bg-base-100 shadow-xl">
+              <figure>
+                <img
+                  id="thumbnail"
+                  src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
+                  alt="Shoes"
+                />
+              </figure>
+              <div class="card-body">
+                <h3 class="card-title h-4 w-full"></h3>
+                <div class="">
+                  <p
+                    id="oldPrice"
+                    class="text-lg text-gray-500 inline-block mr-8 opacity-50 semi-bold line-through"
+                  ></p>
+                  <h5
+                    id="discount"
+                    class="inline-block text-2xl text-red-600"
+                  ></h5>
+                </div>
+                <div class="flex gap-10 items-center">
+                  <span
+                    id="new-price"
+                    class="text-2xl font-semibold text-primary"
+                    >$</span
+                  >
+                  <div class="star-rating">
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                  </div>
+                </div>
+                <div class="card-actions justify-end">
+                  <button id="cart-btn" class="btn btn-primary">
+                    Add to Cart
+                  </button>
+                  <a id="info-btn" class="btn btn-accent">Buy Now</a>
+                </div>
+              </div>
+            </div>
+          </li>
+        </template>
+      </ul>
+    </div>
+    <div class="bg-base-300 text-base-content mx-auto">
+      <footer
+        class="container px-3 py-5 mx-auto xl:px-10 2xl:max-w-[1280px] footer"
+      >
+        <nav class="">
+          <h6 class="footer-title">Services</h6>
+          <a class="link link-hover">Branding</a>
+          <a class="link link-hover">Design</a>
+          <a class="link link-hover">Marketing</a>
+          <a class="link link-hover">Advertisement</a>
+        </nav>
+        <nav>
+          <h6 class="footer-title">Company</h6>
+          <a class="link link-hover">About us</a>
+          <a class="link link-hover">Contact</a>
+          <a class="link link-hover">Jobs</a>
+          <a class="link link-hover">Press kit</a>
+        </nav>
+        <nav>
+          <h6 class="footer-title">Social</h6>
+          <div class="grid grid-flow-col gap-4">
+            <a
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                class="fill-current"
+              >
+                <path
+                  d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+                ></path></svg
+            ></a>
+            <a
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                class="fill-current"
+              >
+                <path
+                  d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"
+                ></path></svg
+            ></a>
+            <a
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                class="fill-current"
+              >
+                <path
+                  d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"
+                ></path></svg
+            ></a>
+          </div>
+        </nav>
+      </footer>
+    </div>
+    <div id="overlay" class="overlay hidden">
+      <span class="loading loading-dots loading-lg"></span>
+    </div>
+    <script src="./request.js"></script>
+    <script src="./sale.js"></script>
+  </body>
+</html>

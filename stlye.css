@@ -42,3 +42,6 @@ body {
 #img1 {
   height: 500px;
 }
+img {
+  object-fit: cover;
+}
